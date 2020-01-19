@@ -23,7 +23,7 @@ etcetera
 
 Entre estas instancias estará la cadena donde nos interesa desplegar el contrato; la cadena donde de hecho fueron ya desplegadas las librerías. Por ejemplo, si la cadena en cuestion es "ropsten":
 
-```json
+```js
  "ropsten:3" : { 
 	 "linkReferences": {},
 	 "autoDeployLib": true
@@ -32,7 +32,7 @@ Entre estas instancias estará la cadena donde nos interesa desplegar el contrat
 
 Sustituimos "true" por "false" y añadimos en el objeto que corresponde a la llave "linkReferences" la correspondencia de las librerias con las direcciones (o addresses) donde han quedado desplegadas en la cadena de bloques:
 
-```json
+```js
 "ropsten:3": {
 	"linkReferences": {
 		"./LSafeMath.sol": {
@@ -91,7 +91,7 @@ Y se abre una consola especial
 
 N° 10.4 A continuación crearemos el archivo estándar de entradas JSON mediante las herramientas de node:
 
-```cmd
+```js
 > var fs = require('fs');
 > var file = fs.readFileSync('./Contrato.sol','utf8');
 > var lib = fs.readFileSync('./Librerias.sol','utf8');
@@ -99,7 +99,7 @@ N° 10.4 A continuación crearemos el archivo estándar de entradas JSON mediant
 
 N° 10.5 Acto seguido utilizaremos nuestro editor de archivos preferido, como por ejemplo [Notepad++](https://notepad-plus-plus.org/downloads/) y cargamos la siguiente plantilla del archivo estándar JSON, la cual ha sido tortuosamente deducida de [la documentación de solidity](https://solidity.readthedocs.io/en/v0.5.13/using-the-compiler.html#input-description) ; con la ayuda de las indicaciones de [este repositorio](https://github.com/modular-network/ethereum-libraries-basic-math#solc-js-installation) :
 
-```cmd
+```js
 {
   "language": "Solidity",
   "sources":
@@ -152,7 +152,7 @@ Y acto seguido se genera un reporte con la metadata tanto de cada contrato conte
 
 N° 10.8 Con esta información volvemos a la cónsola de node que dejamos abierta y creamos la variable de entrada que será la precursora del archivo estandar JSON:
 
-```cmd
+```js
 > var input = {
   "language": "Solidity",
   "sources":
@@ -184,7 +184,7 @@ N° 10.8 Con esta información volvemos a la cónsola de node que dejamos abiert
 
 N° 10.9 Finalmente exportamos la variable input al archivo de extensión json de nuestra preferencia, el archivo que [Etherscan](https://etherscan.io/verifyContract-solc-json?a=0xc3369Fc35273271daFaE85fc3D96d1f4232B82cf&c=v0.5.13%2bcommit.5b0b510c&lictype=3) esta esperando que le suministremos. Los créditos de esta última instrucción se deben al usuario "user405398" del foro ["Stack Overflow"](https://stackoverflow.com/questions/37358202/node-js-how-to-represent-json-file-as-var) : 
 
-```cmd
+```js
 > var jsonpath = './StandardJsonInput.json';
 > fs.writeFileSync(jsonpath, JSON.stringify(input));
 ```
@@ -208,7 +208,7 @@ constructor (string memory _access, uint256 code) public {
 
 En la consola de Remix colocamos:
 
-```cmd
+```js
 >web3.eth.abi.encodeParameters(['string','uint256'],['hola','12745689'])
 ```
 Como se ve, el elemento "memory" ha sido obviado, lo cual esta a corde a las especificaciones del manejo de variables de [tipo dinámico](https://solidity.readthedocs.io/en/v0.5.13/abi-spec.html#use-of-dynamic-types) .

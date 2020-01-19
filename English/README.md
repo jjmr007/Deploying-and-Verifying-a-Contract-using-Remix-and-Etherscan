@@ -22,7 +22,7 @@ etc
 
 Among these instances will be the chain where we are interested in deploying the contract; the chain where in fact the libraries were already deployed. For example, if the string in question is "ropsten":
 
-```json
+```js
  "ropsten:3" : { 
 	 "linkReferences": {},
 	 "autoDeployLib": true
@@ -31,7 +31,7 @@ Among these instances will be the chain where we are interested in deploying the
 
 We substitute "true" for "false" and add in the object corresponding to the "linkReferences" key the correspondence of the libraries with the addresses (or addresses) where they have been displayed in the blockchain:
 
-```json
+```js
 "ropsten:3": {
 	"linkReferences": {
 		"./LSafeMath.sol": {
@@ -91,7 +91,7 @@ And a special console opens
 
 N ° 10.4 Next we will create the standard JSON input file using the node tools:
 
-```cmd
+```js
 > var fs = require ('fs');
 > var file = fs.readFileSync ('./ Contract.sol', 'utf8');
 > var lib = fs.readFileSync ('./ Libraries.sol', 'utf8');
@@ -99,7 +99,7 @@ N ° 10.4 Next we will create the standard JSON input file using the node tools:
 
 N ° 10.5 Then we will use our preferred file editor, such as [Notepad ++](https://notepad-plus-plus.org/downloads/) and load the following template from the JSON standard file, which has been tortuously deduced from [the solidity documentation](https://solidity.readthedocs.io/en/v0.5.13/using-the-compiler.html#input-description); with the help of the indications of [this repository](https://github.com/modular-network/ethereum-libraries-basic-math#solc-js-installation):
 
-```json
+```js
 {
   "language": "Solidity",
   "sources":
@@ -152,7 +152,7 @@ And then a report is generated with the metadata of each contract contained in "
 
 N ° 10.8 With this information we return to the node console that we leave open and create the input variable that will be the precursor of the JSON standard file:
 
-```cmd
+```js
 > var input = {
   "language": "Solidity",
   "sources":
@@ -184,7 +184,7 @@ N ° 10.8 With this information we return to the node console that we leave open
 
 N ° 10.9 Finally, we export the input variable to the json extension file of our preference, the file that [Etherscan](https://etherscan.io/verifyContract-solc-json?a=0xc3369Fc35273271daFaE85fc3D96d1f4232B82cf&c=v0.5.13%2bcommit.5blic0bcmit.5blicmit=3) is waiting for us to supply. The credits of this last instruction are for the user "user405398" of the forum ["Stack Overflow"](https://stackoverflow.com/questions/37358202/node-js-how-to-represent-json-file-as-var):
 
-```cmd
+```js
 >var jsonpath = './StandardJsonInput.json';
 >fs.writeFileSync (jsonpath, JSON.stringify (input));
 ```
@@ -208,7 +208,7 @@ constructor (string memory _access, uint256 code) public {
 
 In the Remix console we place:
 
-```cmd
+```js
 >web3.eth.abi.encodeParameters(['string','uint256'],['hello','12745689'])
 ```
 

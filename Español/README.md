@@ -99,7 +99,7 @@ N° 10.4 A continuación crearemos el archivo estándar de entradas JSON mediant
 
 N° 10.5 Acto seguido utilizaremos nuestro editor de archivos preferido, como por ejemplo [Notepad++](https://notepad-plus-plus.org/downloads/) y cargamos la siguiente plantilla del archivo estándar JSON, la cual ha sido tortuosamente deducida de [la documentación de solidity](https://solidity.readthedocs.io/en/v0.5.13/using-the-compiler.html#input-description) ; con la ayuda de las indicaciones de [este repositorio](https://github.com/modular-network/ethereum-libraries-basic-math#solc-js-installation) :
 
-```js
+```json
 {
   "language": "Solidity",
   "sources":
